@@ -11,7 +11,11 @@ const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-let comments = [];
+let comments = [{
+  id: 1,
+  name: 'Andrii',
+  comment: test,
+}];
 
 app.get('/', (req, res) => {
 
