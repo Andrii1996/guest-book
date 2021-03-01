@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 let comments = [{
   id: 1,
   name: 'Andrii',
-  comment: test,
+  comment: 'test',
 }];
 
 app.get('/', (req, res) => {
@@ -42,6 +42,10 @@ app.delete('/:id', (req, res) => {
   }
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 
