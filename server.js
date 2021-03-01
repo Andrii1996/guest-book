@@ -2,18 +2,23 @@ import uuidv4 from "./src/helper/uuid";
 
 import express from 'express';
 import bodyParser from 'body-parser';
+
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'client/build')));  
 
 const PORT = process.env.PORT || 3001;
 console.log(PORT);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-let comments = [];
+let comments = [{
+  id: 1,
+  name: 'Andrii',
+  comment: 'test',
+}];
 
-app.get('/comments', (req, res) => {
+app.get('/', (req, res) => {
 
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
@@ -38,6 +43,10 @@ app.delete('/:id', (req, res) => {
   }
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 
