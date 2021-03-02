@@ -3,15 +3,10 @@ import uuidv4 from "./src/helper/uuid";
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from "cors";
-import path from "path";
 
 const app = express();
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
 
 const PORT = process.env.PORT || 3001;
-console.log('port', PORT);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -49,5 +44,5 @@ app.delete('/:id', cors(), (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log('Express server is running on localhost:3001')
+  console.log(`Express server is running on localhost:${PORT}`)
 );
