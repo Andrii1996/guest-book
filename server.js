@@ -8,8 +8,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 console.log(PORT);
 
-console.log(PORT);
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 let comments = [{
