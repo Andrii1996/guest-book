@@ -5,16 +5,13 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 
 const app = express();
+app.use(express.static("public"));
 
 const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-let comments = [{
-  id: 1,
-  name: 'Andrii',
-  comment: 'test',
-}];
+let comments = [];
 
 app.get('/', cors(), (req, res) => {
 

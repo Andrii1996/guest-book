@@ -11,6 +11,7 @@ const [comments, setComments] = useState([]);
 
   async function getAllComments() {
     const data = await getComments();
+    console.log('data', data);
     if (!data) return;
     setComments(data);
   }
@@ -55,7 +56,6 @@ const [comments, setComments] = useState([]);
         textAlign: 'center'
       }}
     >
-      TEst
       <Form style={{width: '450px'}} onSubmit={handleSubmitComment}>
         <Form.Control
           style={{
