@@ -5,9 +5,9 @@ import bodyParser from 'body-parser';
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'client/build')));  
-
 const PORT = process.env.PORT || 3001;
+console.log(PORT);
+
 console.log(PORT);
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,11 +44,6 @@ app.delete('/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
 });
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
-
 
 app.listen(PORT, () =>
   console.log('Express server is running on localhost:3001')
