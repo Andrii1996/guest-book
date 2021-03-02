@@ -2,21 +2,32 @@ import uuidv4 from "./src/helper/uuid";
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from "cors";
+import path from "path";
+
 const app = express();
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 const PORT = process.env.PORT || 3001;
+console.log('port', PORT);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-let comments = [];
+let comments = [{
+  id: 1,
+  name: 'Andrii',
+  comment: 'test',
+}];
 
-app.get('/', (req, res) => {
+app.get('/', cors(), (req, res) => {
 
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
 });
 
-app.post('/comment', (req, res) => {
+app.post('/comment', cors(), (req, res) => {
   const comment = req.body;
   const id = uuidv4();
   if(comment) {
@@ -26,7 +37,7 @@ app.post('/comment', (req, res) => {
   res.sendStatus(200)
 });
 
-app.delete('/:id', (req, res) => {
+app.delete('/:id', cors(), (req, res) => {
   const id = req.params.id;
   if (id) {
     comments = comments.filter(comment => {
@@ -36,7 +47,6 @@ app.delete('/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(comments));
 });
-
 
 app.listen(PORT, () =>
   console.log('Express server is running on localhost:3001')
