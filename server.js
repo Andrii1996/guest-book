@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import cors from "cors";
 
 const app = express();
+app.use(express.static('public'));
 
 const PORT = process.env.PORT || 3001;
 console.log('port', PORT);
