@@ -1,4 +1,4 @@
-import uuidv4 from "../helper/uuid";
+import uuidv4 from "./src/helper/uuid";
 
 import express from 'express';
 import bodyParser from 'body-parser';
