@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://secret-ridge-19583.herokuapp.com/",
-  "homepage": "http://andrii1996.github.io/guest-book",
+  "homepage": "http://andrii1996.github.io/guest-book/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
