@@ -3,9 +3,12 @@ import uuidv4 from "./src/helper/uuid";
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from "cors";
+import path from "path";
 
 const app = express();
-app.use(express.static('public'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 const PORT = process.env.PORT || 3001;
 console.log('port', PORT);
