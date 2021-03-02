@@ -1,15 +1,15 @@
 {
+  "homepage": "https://andrii1996.github.io/guest-book/",
   "name": "test",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
-  "homepage": "https://andrii1996.github.io/guest-book/",
-
+  "proxy": "https://secret-ridge-19583.herokuapp.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
     "bootstrap": "^4.6.0",
+    "cors": "^2.8.5",
     "esm": "^3.2.25",
     "gh-pages": "^3.1.0",
     "react": "^17.0.1",
